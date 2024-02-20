@@ -10,8 +10,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import SignUp from "./SignUp";
-import {Alert, Divider} from "@mui/material";
+import {Alert} from "@mui/material";
 import {useDispatch, useSelector} from "react-redux";
 import {resetCode} from "../../redux/errorSlice";
 import {setPage} from "../../redux/statusPageSlice";
@@ -20,8 +19,8 @@ function Copyright(props) {
     return (
         <Typography variant="body2" color="text.secondary" align="center" {...props}>
             {'Copyright © '}
-            <Link color="inherit" href="https://flex.com/careers/israel">
-                Flex
+            <Link color="inherit" href="https://www.facebook.com/profile.php?id=100005232401105">
+                Denys Sytnyk
             </Link>{' '}
             {new Date().getFullYear()}
             {'.'}
@@ -104,9 +103,6 @@ export default function LoginForm({submitFn}) {
                             </Grid>
                         </Grid>
                     </Box>
-                    <Divider sx={{width: "100%", color: "black"}}>or</Divider>
-                    <Button onClick={() => submitFn({email: 'GOOGLE', password: ''})}>
-                        <Avatar src={'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/2048px-Google_%22G%22_logo.svg.png'}/></Button>
                 </Box>
                 <Copyright sx={{ mt: 8, mb: 4 }} />
             </Container>

@@ -22,8 +22,8 @@ function Copyright(props) {
     return (
         <Typography variant="body2" color="text.secondary" align="center" {...props}>
             {'Copyright © '}
-            <Link color="inherit" href="https://flex.com/careers/israel">
-                Flex
+            <Link color="inherit" href="https://www.facebook.com/profile.php?id=100005232401105">
+                Denys Sytnyk
             </Link>{' '}
             {new Date().getFullYear()}
             {'.'}
