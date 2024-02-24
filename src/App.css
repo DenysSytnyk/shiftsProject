@@ -1,3 +1,4 @@
+
 body {
   background: linear-gradient(90deg, #f598a8, #f6edb2);
   text-align: center;
@@ -7,12 +8,15 @@ body {
 {
   display: flex;
   justify-content: center;
+
+
 }
 .main
 {
   display: flex;
-  width: 100%;
+  width: 357px;
   justify-content: center;
+  overflow-x: hidden;
 }
 .wrapper
 {
@@ -20,30 +24,40 @@ body {
   flex-direction: column;
   align-items: center;
   width: 357px;
+  height: 100%;
+}
+.AddWrapper
+{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  width: 300px;
+  padding-left: 20px;
+  height: 10px;
+  margin-bottom: 40px;
 }
 .field {
   display: flex;
-  padding: 50px 20px;
-  width: 100%;
+  padding: 50px 0;
+  width: 357px;
   color: #fff;
   flex-direction: column;
   align-items: center;
   background-color: white;
-  margin: 50px 10px 400px 10px;
+  margin: 10px 0 400px 0;
   border-radius: 50px;
 }
 
 .box {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-around;
-  border: 2px solid #aaa719;
+  border: 1px solid #aaa719;
   background: linear-gradient(90deg, #f598a8, #f6edb2);
   border-radius: 50px;
   margin: 10px 0 10px 0;
-  padding: 10px;
-  width: 100%;
-  height: 30px;
+  padding: 10px 0 10px 0;
+  width: 347px;
   text-align: center;
 
   -webkit-animation: box 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
@@ -55,11 +69,24 @@ body {
   justify-content: space-around;
   margin: 0;
   padding: 10px;
-  width: 100%;
+  width: 90%;
   height: 30px;
   text-align: center;
-  border: solid black 1px;
   color: black;
+}
+.boxShift
+{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 0;
+  padding: 10px;
+  width: 90%;
+  height: 30px;
+  text-align: center;
+
+  -webkit-animation: boxShift 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  animation: boxShift 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }
 
 .box:last-child {
@@ -78,23 +105,34 @@ button.btn {
 
 textarea{
   resize: none;
-  background-color: #fafafa;
-  border: 1.5px solid silver;
+  background-color: transparent;
   border-radius: 5px;
-  padding: 10px;
-  font-size: 0.7em;
-  width: 90%;
+  width: 50%;
   outline: none;
+color: black;
+  border-color: transparent;
+  text-align: center;
+  align-items: center;
+  padding-top: 10px;
+}
+textarea::placeholder
+{
+  text-align: center;
 }
 
-textarea:focus{
-  border: 1.5px solid #6d79cd;
-}
 
 .rowTime
 {
   display: flex;
   justify-content: space-around;
+}
+.link_wrapper
+{
+  height: 50px;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+
 }
 .link_wrapper a
 {
@@ -157,7 +195,7 @@ textarea:focus{
 {
   display: flex;
   justify-content: space-around;
-  width: 100%;
+  width: 80%;
 }
 .date
 {
@@ -175,16 +213,18 @@ textarea:focus{
 #now
 {
 
-  font-size: 100%;
+  font-size: 85%;
   background: none;
   border: none;
-
+  width: 70%;
+text-align: end;
 }
 #time
 {
-  font-size: 100%;
+  font-size: 85%;
   background: none;
   border: none;
+  text-align: end;
 }
 .userField
 {
@@ -192,8 +232,9 @@ textarea:focus{
   width: 100%;
   justify-content: start;
   height: 50px;
-  margin-top: 15px;
+  margin: 15px 20px 0 40px;
   align-items: start;
+
 }
 
 .userIcon
@@ -227,35 +268,112 @@ display: flex;
   -webkit-animation: modalUserHide 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
   animation: modalUserHide 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
+.monthWrapper
+{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 50px;
+  width: 90%;
+  height: 30px;
+  text-align: center;
+}
+.monthWrapperHide
+{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 50px;
+  width: 100%;
+  height: 30px;
+  text-align: center;
+  opacity: 60%;
+  -webkit-filter: grayscale(70%);
+}
+.monthName
+{
+  width: 60%;
+}
+.buttons
+{
+  height: 30px;
+}
 
 
+                                                     /* CSS */
+                                                   .button-88 {
+                                                     display: flex;
+                                                     align-items: center;
+                                                     font-family: inherit;
+                                                     font-weight: 500;
+                                                     font-size: 16px;
 
+                                                     color: white;
+
+                                                     background: transparent;
+                                                     border: solid 1px black;
+                                                     box-shadow: 0 0.7em 1.5em -0.5em #14a73e98;
+                                                     letter-spacing: 0.05em;
+                                                     border-radius: 20em;
+                                                     cursor: pointer;
+                                                     user-select: none;
+                                                     -webkit-user-select: none;
+                                                     touch-action: manipulation;
+                                                   }
+
+.button-88:hover {
+  box-shadow: 0 0.5em 1.5em -0.5em #14a73e98;
+}
+
+.button-88:active {
+  box-shadow: 0 0.3em 1em -0.5em #14a73e98;
+}
+
+.shiftHide
+{
+  display: none;
+}
+.lockIco
+{
+  height: 100%;
+  cursor: pointer;
+}
+.shiftNonHide
+{
+  width: 95%;
+  text-align: center;
+background: rgba(240, 240, 240,0.5);
+  border-radius: 50px;
+  margin-top: 20px;
+}
+
+/*////////////////////////////////////////////////////////////////////////*/
 @-webkit-keyframes modalUserActive {
   0% {
     -webkit-transform: scaleX(0.4);
     transform: scaleX(0.4);
-    -webkit-transform-origin: 0% 0%;
-    transform-origin: 0% 0%;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
   }
   100% {
     -webkit-transform: scaleX(1);
     transform: scaleX(1);
-    -webkit-transform-origin: 0% 0%;
-    transform-origin: 0% 0%;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
   }
 }
 @keyframes modalUserActive {
   0% {
     -webkit-transform: scaleX(0.4);
     transform: scaleX(0.4);
-    -webkit-transform-origin: 0% 0%;
-    transform-origin: 0% 0%;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
   }
   100% {
     -webkit-transform: scaleX(1);
     transform: scaleX(1);
-    -webkit-transform-origin: 0% 0%;
-    transform-origin: 0% 0%;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
   }
 }
 
@@ -263,28 +381,28 @@ display: flex;
   0% {
     -webkit-transform: scaleX(1);
     transform: scaleX(1);
-    -webkit-transform-origin: 0% 0%;
-    transform-origin: 0% 0%;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
   }
   100% {
     -webkit-transform: scaleX(0.3);
     transform: scaleX(0.3);
-    -webkit-transform-origin: 0% 0%;
-    transform-origin: 0% 0%;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
   }
 }
 @keyframes modalUserHide {
   0% {
     -webkit-transform: scaleX(1);
     transform: scaleX(1);
-    -webkit-transform-origin: 0% 0%;
-    transform-origin: 0% 0%;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
   }
   100% {
     -webkit-transform: scaleX(0);
     transform: scaleX(0);
-    -webkit-transform-origin: 0% 0%;
-    transform-origin: 0% 0%;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
   }
 }
 
@@ -300,6 +418,27 @@ display: flex;
   }
 }
 @keyframes box {
+  0% {
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@-webkit-keyframes boxShift {
+  0% {
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@keyframes boxShift {
   0% {
     -webkit-transform: scale(0.5);
     transform: scale(0.5);

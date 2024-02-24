@@ -1,13 +1,13 @@
 import './App.css';
 import React from 'react';
-import ShiftsList from "./components/ShiftsList";
+import MonthList from "./components/MonthList";
 
 
 const App = () => {
 
     return (
         <div className={'main'}>
-            <ShiftsList/>
+            <MonthList/>
         </div>
     )
 }
