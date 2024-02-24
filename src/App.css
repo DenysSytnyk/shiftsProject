@@ -217,7 +217,7 @@ textarea::placeholder
   background: none;
   border: none;
   width: 70%;
-text-align: end;
+text-align: center;
 }
 #time
 {
@@ -345,9 +345,44 @@ display: flex;
 background: rgba(240, 240, 240,0.5);
   border-radius: 50px;
   margin-top: 20px;
+
+  -webkit-animation: shiftNonHide 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  animation: shiftNonHide 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }
 
 /*////////////////////////////////////////////////////////////////////////*/
+
+@-webkit-keyframes shiftNonHide {
+  0% {
+    -webkit-transform: scaleY(0.4);
+    transform: scaleY(0.4);
+    -webkit-transform-origin: 100% 0;
+    transform-origin: 100% 0;
+  }
+  100% {
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+    -webkit-transform-origin: 100% 0;
+    transform-origin: 100% 0;
+  }
+}
+@keyframes shiftNonHide {
+  0% {
+    -webkit-transform: scaleY(0.4);
+    transform: scaleY(0.4);
+    -webkit-transform-origin: 100% 0;
+    transform-origin: 100% 0;
+  }
+  100% {
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+    -webkit-transform-origin: 100% 0;
+    transform-origin: 100% 0;
+  }
+}
+
+
+
 @-webkit-keyframes modalUserActive {
   0% {
     -webkit-transform: scaleX(0.4);

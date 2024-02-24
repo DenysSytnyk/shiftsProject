@@ -15,8 +15,10 @@ const Row = () => {
                 <option>16:15</option>
                 <option>15:15</option>
                 <option>Ночь</option>
-                <option>Ночь|24:00</option>
-                <option>Ночь с 21:30</option>
+                <option>до 24</option>
+                <option>с 21:30</option>
+                <option>Болезнь</option>
+                <option>Отпуск</option>
             </select>
         </div>
     );

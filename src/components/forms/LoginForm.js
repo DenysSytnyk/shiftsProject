@@ -61,7 +61,7 @@ export default function LoginForm({submitFn}) {
                         <LockOutlinedIcon />
                     </Avatar>
                     <Typography component="h1" variant="h5">
-                        Sign in
+                       Войти
                     </Typography>
                     <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
                         <TextField
@@ -69,7 +69,7 @@ export default function LoginForm({submitFn}) {
                             required
                             fullWidth
                             id="email"
-                            label="Email Address"
+                            label="Email"
                             name="email"
                             autoComplete="email"
                             autoFocus
@@ -79,7 +79,7 @@ export default function LoginForm({submitFn}) {
                             required
                             fullWidth
                             name="password"
-                            label="Password"
+                            label="Пароль"
                             type="password"
                             id="password"
                             autoComplete="current-password"
@@ -90,7 +90,7 @@ export default function LoginForm({submitFn}) {
                             variant="contained"
                             sx={{ mt: 3, mb: 2 }}
                         >
-                            Sign In
+                            Войти
                         </Button>
                         <Grid container>
                             <Grid item xs>
@@ -99,7 +99,7 @@ export default function LoginForm({submitFn}) {
                         </Grid>
                         <Grid container>
                             <Grid item>
-                                <Button onClick={() => dispatch(setPage('up'))}>{"Don't have an account? Sign Up"}</Button>
+                                <Button onClick={() => dispatch(setPage('up'))}>{"Нет аккаунта? Зарегистрироваться"}</Button>
                             </Grid>
                         </Grid>
                     </Box>

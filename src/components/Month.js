@@ -57,7 +57,7 @@ const handleHideMonth = () =>
             <div className={hide? 'shiftHide' : 'shiftNonHide'}>{props.list}</div>
         </div>)
     }
-    console.log(props.isHide)
+
 
         if(state.isEdit)
             return renderEdit();
