@@ -1,8 +1,9 @@
 
 body {
-  background: linear-gradient(90deg, #f598a8, #f6edb2);
-  text-align: center;
-  overflow-x: hidden;
+  background: linear-gradient(-45deg, #f598a8, #f6edb2);
+  background-size: 400% 400%;
+  animation: gradient 2s ease infinite;
+  height: 100vh;
 }
 #root
 {
@@ -194,16 +195,17 @@ textarea::placeholder
 .rowSave
 {
   display: flex;
+  align-items: center;
   justify-content: space-around;
   width: 80%;
 }
 .date
 {
-  font-size: 100%;
+  font-size: 85%;
 }
 .time
 {
-  font-size: 100%;
+  font-size: 85%;
 }
 .right
 {
@@ -351,6 +353,18 @@ background: rgba(240, 240, 240,0.5);
 }
 
 /*////////////////////////////////////////////////////////////////////////*/
+@keyframes gradient {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+
 
 @-webkit-keyframes shiftNonHide {
   0% {
