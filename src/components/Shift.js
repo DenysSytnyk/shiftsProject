@@ -4,8 +4,8 @@ import React, {useState} from 'react';
 
 const Shift = (props) =>
 {
-const [state, setState] = useState(props.isEdit)
 
+const [state, setState] = useState(props.isEdit)
    const handleClickEdit = function ()
     {
         props.updateTask(props.index)
@@ -17,6 +17,14 @@ const [state, setState] = useState(props.isEdit)
     {
         props.saveTask(props.index);
         setState({isEdit: false});
+    }
+    const  renderDiv = () =>
+    {
+        return (
+          <div onDoubleClick={handleClickRemove} className='boxDone'>
+             <div className={'dividerWeek'}>{props.children}</div>
+              </div>
+        );
     }
 
   const  renderNorm = () =>
@@ -43,6 +51,12 @@ const [state, setState] = useState(props.isEdit)
         </div>
             </div>
         )
+    }
+
+
+    if (props.children.props.date === '')
+    {
+        return renderDiv()
     }
 
         if(state.isEdit)

@@ -15,6 +15,8 @@ const ShiftsList = (props) => {
     const [isEdit, setIsEdit] = useState({isEdit: false});
 
 
+
+
     const taskEdit = (index) => {
         const temp = [...state.tasks];
         temp[index] = <Row/>;
@@ -37,12 +39,25 @@ const ShiftsList = (props) => {
         check[props.index].shifts.splice(index, 1);
         setDateTime(check);
     }
+    const handleAddDivider = () => {
+        const check = [...dateTime];
+        const arr = [...state.tasks];
+        arr.push(<RowTime date={""} time={""}/>);
+        setState({tasks: arr});
+        check[props.index].shifts.push({date: "", time: ""})
+        setDateTime(check);
 
+    }
     const handleAddTaskClick = () => {
         const arr = [...state.tasks];
         arr.push(<Row/>);
         setState({tasks: arr});
         setIsEdit({isEdit: true});
+
+        window.scrollBy({
+            top: 100000,
+            behavior: 'smooth'
+        })
     }
 
 
@@ -59,8 +74,13 @@ const ShiftsList = (props) => {
 
         <div >
             <div className="AddWrapper">
-                <div className="link_wrapper">
-                    <button onClick={handleAddTaskClick} className={'button-88'}>+</button>
+                <div className="link">
+                        <div onClick={handleAddTaskClick} className="link_wrapperButtons">
+                            <a href={'#'}>Добавить смену</a>
+                        </div>
+                    <div onClick={handleAddDivider} className="link_wrapperButtons">
+                        <a>Конец недели</a>
+                    </div>
                 </div>
             </div>
             {state.tasks.map((item, index) =>

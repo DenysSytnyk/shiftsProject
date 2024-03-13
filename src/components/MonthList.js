@@ -9,6 +9,7 @@ import {login, logout} from "../redux/authSlice";
 import {setCode} from "../redux/errorSlice";
 import {setPage} from "../redux/statusPageSlice";
 import ShiftsList1 from "./ShiftsList1";
+import PreLoader from "./PreLoader";
 
 
 
@@ -24,6 +25,7 @@ const MonthList = () => {
     const userStyle = userIcon? 'modalUserActive': 'modalUserHide';
     const [state, setState] = useState(dataUser)
     const [isEdit, setIsEdit] = useState({isEdit: false});
+    let clock = document.getElementsByClassName('clockWrapper');
     async function loginFn(loginData)
     {
         try {
@@ -83,29 +85,33 @@ const MonthList = () => {
     }
 
 
+
     function renderWithLogin()
     {
-        return (
-            <div className={'wrapper'}>
-                <div className={'userField'}>
-                    <img alt={"ico"} onClick={() => setUserIcon(!userIcon)} className={'userIcon'} src={'https://cdn-icons-png.flaticon.com/512/1144/1144760.png'}/>
-                    <div className={userStyle}>
-                        <p style={{color: "black"}}>{user}</p>
-                        <img alt={"out"} onClick={logoutFn} className={'userIconLogout'} src={'https://icons.veryicon.com/png/o/internet--web/website-icons/logout-8.png'}/>
+            return (
+                <div>
+                <div className={'wrapper'}>
+                    <PreLoader/>
+                    <div className={'userField'}>
+                        <img alt={"ico"} onClick={() => setUserIcon(!userIcon)} className={userIcon? 'userIconOn' : 'userIconOff'} src={'https://cdn-icons-png.flaticon.com/512/1665/1665676.png'}/>
+                        <div className={userStyle}>
+                            <p style={{color: "black"}}>{user}</p>
+                            <img alt={"out"} onClick={logoutFn} className={'userIconLogout'} src={'https://icons.veryicon.com/png/o/internet--web/website-icons/logout-8.png'}/>
+                        </div>
+                    </div>
+                    <div onClick={handleAddTaskClick} className="wrapperAddMonth">
+                        <div className="link_wrapperAdd">
+                            <a href={'#'} id={'newMonth'}>Новый месяц</a>
+                        </div>
+                    </div>
+                    <div className={'field'}>
+                        {state.map((item, index) =>
+                            <Month key={index} updateTask={taskEdit}
+                                   deleteTask={taskRemove} hideMonth={handleHideMonth} isHide={item.month.hide} isEdit={isEdit} name={item.month.name} index={index}><ShiftsList1 data={dateTime} shifts={item.shifts} name={item.month.name} index={index}/></Month>)}
                     </div>
                 </div>
-                <div onClick={handleAddTaskClick} className="wrapper">
-                    <div className="link_wrapper">
-                        <a>Новый месяц</a>
-                    </div>
                 </div>
-                <div className={'field'}>
-                    {state.map((item, index) =>
-                        <Month key={index} updateTask={taskEdit}
-                               deleteTask={taskRemove} hideMonth={handleHideMonth} isHide={item.month.hide} isEdit={isEdit} name={item.month.name} index={index}><ShiftsList1 data={dateTime} shifts={item.shifts} name={item.month.name} index={index}/></Month>)}
-                </div>
-            </div>
-        );
+            );
     }
     function renderType()
     {
@@ -120,13 +126,18 @@ const MonthList = () => {
 
         }
     }
+    useEffect(() =>
+    {
+        setTimeout(() => {
+            clock[0].remove()
+        }, 400);
+    }, [currentPage]);
 
     useEffect(() =>
     {
         localStorage.removeItem(`${user}Data`);
         localStorage.setItem(`${user}Data`, JSON.stringify(state));
     }, [state])
-
 
 
         return user? renderWithLogin() : renderType()

@@ -5,6 +5,7 @@ body {
   animation: gradient 2s ease infinite;
   height: 100vh;
 }
+
 #root
 {
   display: flex;
@@ -21,10 +22,20 @@ body {
 }
 .wrapper
 {
+  position: relative;
   display: flex;
+  justify-content: center;
   flex-direction: column;
   align-items: center;
   width: 357px;
+  height: 100%;
+}
+.wrapperAddMonth
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   height: 100%;
 }
 .AddWrapper
@@ -127,15 +138,26 @@ textarea::placeholder
   display: flex;
   justify-content: space-around;
 }
-.link_wrapper
+
+.link
 {
-  height: 50px;
-  margin-top: 20px;
+  width: 100%;
   display: flex;
   align-items: center;
-
+  justify-content: space-between;
+  margin-top: 15px;
+  margin-bottom: 25px;
 }
-.link_wrapper a
+
+.link_wrapperAdd {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 50px;
+  margin-top: 20px;
+  align-items: center;
+}
+.link_wrapperAdd a
 {
   display: block;
   width: 250px;
@@ -155,6 +177,46 @@ textarea::placeholder
   border-radius: 50px;
 }
 
+.link_wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+  margin-top: 20px;
+  align-items: center;
+}
+
+hr.separator {
+  border-top: 1px solid #000;
+  width: 100%;
+  clear: both;
+}
+
+
+.link_wrapperButtons
+{
+ height: 30px;
+}
+.link_wrapperButtons a
+{
+  opacity: 85%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100%;
+  line-height: 50px;
+  font-weight: bold;
+  font-size: 0.5rem;
+  text-decoration: none;
+  background: #333;
+  text-align: center;
+  color: #fff;
+  letter-spacing: 1px;
+  border: 3px solid #333;
+  transition: all .35s;
+  border-radius: 50px;
+}
 .icon{
   width: 50px;
   height: 50px;
@@ -177,14 +239,14 @@ textarea::placeholder
   transition: all .35s;
 }
 
-.link_wrapper a:hover{
+.link_wrapperAdd a:hover{
   width: 200px;
   border: 3px solid #2ecc71;
   background: transparent;
   color: #2ecc71;
 }
 
-.link_wrapper a:hover + .icon{
+.link_wrapperAdd a:hover + .icon{
   border: 3px solid #2ecc71;
   right: -25%;
 }
@@ -211,6 +273,10 @@ textarea::placeholder
 {
   width: 70%;
   text-align: center;
+}
+.dividerWeek
+{
+  width: 100%;
 }
 #now
 {
@@ -239,11 +305,20 @@ text-align: center;
 
 }
 
-.userIcon
+.userIconOn
 {
   height: 100%;
-}
 
+  -webkit-animation: userIcon 0.3s ease-in-out both;
+  animation: userIcon 0.3s ease-in-out both;
+}
+.userIconOff
+{
+  height: 100%;
+
+  -webkit-animation: userIconOff 0.3s ease-in-out both;
+  animation: userIconOff 0.3s ease-in-out both;
+}
 .modalUserActive
 {
   display: flex;
@@ -309,9 +384,7 @@ display: flex;
                                                      font-family: inherit;
                                                      font-weight: 500;
                                                      font-size: 16px;
-
                                                      color: white;
-
                                                      background: transparent;
                                                      border: solid 1px black;
                                                      box-shadow: 0 0.7em 1.5em -0.5em #14a73e98;
@@ -321,6 +394,7 @@ display: flex;
                                                      user-select: none;
                                                      -webkit-user-select: none;
                                                      touch-action: manipulation;
+
                                                    }
 
 .button-88:hover {
@@ -351,8 +425,120 @@ background: rgba(240, 240, 240,0.5);
   -webkit-animation: shiftNonHide 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
   animation: shiftNonHide 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }
+.clockWrapper
+{
+  background: linear-gradient(-45deg, #f598a8, #f6edb2);
+ height: 100vh;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  z-index: 100;
+  top: 0;
+}
+.clock {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border: 20px solid #b06a26;
+  border-radius: 50%;
+  top: 25%;
+  background: #fefbf2;
+  transform: translate(-50%, -50%);
+  box-shadow: inset 0 0 10px black;
+  animation: scale 0.4s linear;
+
+}
+
+.clock::before {
+  position: absolute;
+  content: '';
+  height: 130px;
+  width: 10px;
+  background: black;
+  top: 50%;
+  left: calc(50% - 5px);
+  border-radius: 5px;
+  animation: spin 0.2s linear infinite;
+  transform-origin: top;
+
+}
+
+.clock::after {
+  position: absolute;
+  content: '';
+  height: 100px;
+  width: 10px;
+  background: black;
+  top: 50%;
+  left: calc(50% - 5px);
+  border-radius: 5px;
+  animation: spin 0.4s linear infinite;
+  transform-origin: top;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(-180deg)
+  }
+  100% {
+    transform: rotate(180deg)
+  }
+}
+@keyframes scale {
+  0% {
+    transform: scale(0.5);
+    opacity: 100%;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
 
 /*////////////////////////////////////////////////////////////////////////*/
+@-webkit-keyframes userIcon {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes userIcon {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes userIconOff {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(-360deg);
+    transform: rotate(-360deg);
+  }
+}
+@keyframes userIconOff {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(-360deg);
+    transform: rotate(-360deg);
+  }
+}
 @keyframes gradient {
   0% {
     background-position: 0 50%;

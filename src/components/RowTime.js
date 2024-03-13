@@ -48,13 +48,26 @@ const RowTime = ({date, time}) => {
     }
 
     let formattedDate = day + "-" + month + "-" + year;
-    return (
-        <div className={'rowSave'}>
-            <p className={'date'}>{formattedDate}</p>
-            <p>-</p>
-            <p className={'time'}>{time}</p>
-        </div>
-    );
+
+   function renderNormal()
+    {
+        return (
+            <div className={'rowSave'}>
+                <p className={'date'}>{formattedDate}</p>
+                <p>-</p>
+                <p className={'time'}>{time}</p>
+            </div>
+        );
+    }
+
+    function renderDivider()
+    {
+        return (
+                <hr id={'divider'} className="separator"/>
+
+        );
+    }
+    return date === ""? renderDivider():  renderNormal();
 };
 
 export default RowTime;
